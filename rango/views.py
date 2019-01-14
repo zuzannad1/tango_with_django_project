@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rango.models import Category, Page
 from django.http import HttpResponse
 from rango.forms import CategoryForm, PageForm
+from rango.forms import UserForm, UserProfileForm
+
 
 #The welcome page with link to about page 
 def index(request):
@@ -66,3 +68,36 @@ def add_page(request, category_name_slug):
             
     context_dict = {'form':form, 'category': category, 'category_name_slug': category_name_slug}
     return render(request, 'rango/add_page.html', context_dict)
+
+def register(request):
+
+    registered = False
+
+    if(request.method == 'POST'):
+        userForm = forms.UserForm(data=request.POST)
+        profileForm = forms.UserProfileInfoForm(data=request.POST)
+
+        if((userForm.is_valid()) and (profileForm.id_valid())):
+            user = userForm.save()
+            user.set_password(user.password)
+            user.save()
+
+            profile = profileForm.save(commit=False)
+            profile.user = user
+
+            if('profileImage' in request.FILES):
+                profile.profileImage = request.FILES['profileImage']
+
+            profile.save()
+
+            registered = True
+
+        else:
+            print(userForm.errors, profileForm.errors)
+
+    else:
+        userForm = UserForm()
+        profileForm = UserProfileForm()
+
+    return render(request, 'rango/register.html',
+                  {'userForm':userForm, 'profileForm':profileForm, 'registered':registered})

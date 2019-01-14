@@ -1,6 +1,6 @@
 <ul> {%if cats%}
 {% for c in cats %}
-<li><a href="/rango/category/{{ c.url }}">{{ c.name }}</a></li>
+<li><a href="/rango/category/{{ c.slug }}">{{ c.name }}</a></li>
 {% endfor %} {%else%}
 <li><strong>There are no categories present.</strong></li> {% endif %}
 </ul>

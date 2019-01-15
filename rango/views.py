@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from rango.models import Category, Page
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from rango.forms import CategoryForm, PageForm
 from rango.forms import UserForm, UserProfileForm
+from django.urls import reverse
+from django.contrib.auth import authenticate, login
 
 
 #The welcome page with link to about page 

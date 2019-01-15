@@ -28,6 +28,8 @@ MEDIA_ROOT = MEDIA_DIR
 
 MEDIA_URL = '/media/'
 
+LOGIN_URL = '/rango/login'
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1%(g)w@g!h2%aj&z8faj*0ko6ho9*b%qn$7=pc4bw%q*#o6311'
 
@@ -109,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {'min_lenght':6}
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',

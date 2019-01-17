@@ -11,7 +11,7 @@
 {% block sidebar_block %}
         {% get_category_list category %}
     {% endblock %}
-</div>
+</div> 
 <div>
 {% block body_block %} {% endblock %}
 </div> <hr />
@@ -20,11 +20,11 @@
 {% if user.is_authenticated %}
 <li><a href="/rango/restricted/">Restricted Page</a></li>
 <li><a href="/rango/logout">Logout</a></li> 
+<li><a href="/rango/add_category">Add a New Category</a></li> 
 {% else %}
 <li><a href="/rango/login">Sign In</a></li>
 <li><a href="/rango/register">Sign Up</a></li> 
 {% endif %}
-<li><a href="/rango/add_category">Add a New Category</a></li> 
 <li><a href="/rango/about">About</a></li>
 <li><a href="/rango/">Index</a></li>
 </ul>

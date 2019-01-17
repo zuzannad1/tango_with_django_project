@@ -30,6 +30,8 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = '/rango/login'
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1%(g)w@g!h2%aj&z8faj*0ko6ho9*b%qn$7=pc4bw%q*#o6311'
 

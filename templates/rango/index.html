@@ -5,12 +5,10 @@
 
 {% block body_block %}
 <div class="hero-unit">
-    <h1>Ready to Rango</h1>
-
-    <p>Find, Add, Share and Rango useful links and resources.</p>
+    <h1>Rango says... </h1>
     
     {% if user.is_authenticated %}
-     <p>Hola {{ user.username }}!</p>
+     <p>Howdy {{ user.username }}!</p>
     {% else %}
    <p>Hey there partner!</p>
 {% endif %}
